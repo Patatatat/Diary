@@ -197,7 +197,7 @@ class Diary:
     """)
     endsearch = False
     while not endsearch:
-      optsearch = GetOption("Option: ")
+      optsearch = input("Option: ")
       if optsearch == 1:
         found = diary.SearchContactByName(input((">Enter the name to search: ")))
         if len(found) > 0:
