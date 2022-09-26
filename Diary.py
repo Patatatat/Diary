@@ -190,8 +190,34 @@ class Diary:
     6) Exit
     """)
   def SearchContacts(diary):
-    print("""
+    print("""Search contacts:
     1) Name
     2) Phone
     3) Go back
     """)
+    endsearch = False
+    while not endsearch:
+      optsearch = GetOption("Option: ")
+      if optsearch == 1:
+        found = diary.SearchContactByName(input((">Enter the name to search: ")))
+        if len(found) > 0:
+          print("######### CONTACTS FOUND #########")
+          for item in found:
+            item = Contacts()
+            item.ShowContacts()
+          print("##################################################################")
+        else:
+          print("INFO: No contacts found")
+      elif optsearch == 2:
+        found = diary.SearchContactByPhone(input((">Enter the phone to search")))
+        if len(found) > 0:
+          print("########## CONTACTS FOUND ########")
+          for item in found:
+            item = Contacts()
+            item.ShowContacts()
+          print("####################################################################")
+        else:
+          print("INFO: Contacts not found")
+          endsearch = True
+      elif optsearch == 3:
+        endsearch = True
