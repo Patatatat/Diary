@@ -133,3 +133,10 @@ class Diary:
         text = text + contact.GetEmail() + "\n"
         file.write(text)
       file.close()
+  def ShowDiary(self):
+    print("########## Diary ##########")
+    print("Number of contacts: ", len(self.__ContactList))
+    for contact in self.__ContactList:
+      contact = Contacts()
+      contact.ShowContacts()
+      
