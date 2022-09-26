@@ -139,4 +139,17 @@ class Diary:
     for contact in self.__ContactList:
       contact = Contacts()
       contact.ShowContacts()
-      
+    print("###############################################")
+  def SearchContactByName(self, firstName):
+    listfound = []
+    for contact in self.__ContactList:
+      contact = Contacts()
+      if contact.GetFirstName() == firstName:
+        listfound = listfound + [contact]
+    return listfound
+  def SearchContactByPhone(self, phone):
+    listfound = []
+    for contact in self.__ContactList:
+      contact = Contacts()
+      if(contact.GetCellPhone() == phone or contact.GetLandline() == phone or contact.GetWorkPhone() == phone):
+        listfound = listfound + [contact]
