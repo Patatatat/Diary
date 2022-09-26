@@ -153,3 +153,45 @@ class Diary:
       contact = Contacts()
       if(contact.GetCellPhone() == phone or contact.GetLandline() == phone or contact.GetWorkPhone() == phone):
         listfound = listfound + [contact]
+    return listfound
+  def DeleteContactByName(self, firstName):
+    finallist = []
+    for contact in self.__ContactList:
+      contact = Contacts()
+      if contact.GetFirstName != firstName:
+        finallist = finallist + [contact]
+    print("INFO: ", len(self.__ContactList) - len(finallist)," contacts have been deleted ")
+    self.__ContactList = finallist
+  def DeleteContactByPhone(self, phone):
+    finallist = []
+    for contact in self.__ContactList:
+      contact = Contacts()
+      if (contact.GetCellPhone() != phone or contact.GetLandline() != phone or contact.GetWorkPhone() != phone):
+        finallist = finallist + [contact]
+    print("INFO: ", len(self.__ContactList) - len(finallist)," contacts have been deleted ")
+    self.__ContactList = finallist
+  def GetOption(text):
+    read = False
+    while not read:
+      try:
+        number = int(input(text))
+      except ValueError:
+        print("ERROR: You have to put a number")
+      else:
+        read = True
+    return number
+  def ShowMenu():
+    print("""Menu
+    1) Show contacts
+    2) Search contacts
+    3) Create new  contact
+    4) Delete contact
+    5) Save contact
+    6) Exit
+    """)
+  def SearchContacts(diary):
+    print("""
+    1) Name
+    2) Phone
+    3) Go back
+    """)
