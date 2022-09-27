@@ -238,7 +238,7 @@ class Diary:
     """)
         endsearch = False
         while not endsearch:
-            optsearch = input("Option: ")
+            optsearch = GetOption("Option: ")
             if optsearch == 1:
                 found = diary.SearchContactByName(
                     input((">Enter the name to search: ")))
@@ -313,7 +313,7 @@ class Diary:
         end = False
         while not (end):
             diary.ShowMenu()
-            opt = input("Option")
+            opt = GetOption("Option")
             if (opt == 1):
                 diary.ShowDiary()
             elif (opt == 2):
@@ -326,4 +326,5 @@ class Diary:
                 diary.SaveContacts()
             elif (opt == 6):
                 end = True
+
     Main()
