@@ -266,3 +266,17 @@ class Diary:
                     endsearch = True
             elif optsearch == 3:
                 endsearch = True
+    def ProcessCreateContact(diary):
+        newcontact = Contacts()
+        newcontact.SetFirstName(input((">Enter the first name of the contact: ")))
+        newcontact.SetLastName(input((">Enter the last name of the contact: ")))
+        newcontact.SetDateOfBirth(input((">Enter the date of birth of the contact: ")))
+        newcontact.SetCellPhone(input((">Enter the Cell phone of the contact: ")))
+        newcontact.SetLandline(input((">Enter the landline of the contact: ")))
+        newcontact.SetWorkPhone(input((">Enter the work phone of the contact: ")))
+        newcontact.SetStreet(input((">Enter the street of the contact: ")))
+        newcontact.SetFlat(input((">Enter the flat of the contact: ")))
+        newcontact.SetCity(input((">Enter the city of the contact: ")))
+        newcontact.SetPostCode(input((">Enter the post code of the contact: ")))
+        newcontact.SetEmail(input((">Enter the email of the contact: ")))
+        diary.CreateNewContact(newcontact)
