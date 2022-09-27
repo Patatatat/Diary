@@ -266,20 +266,28 @@ class Diary:
                     endsearch = True
             elif optsearch == 3:
                 endsearch = True
+
     def ProcessCreateContact(diary):
         newcontact = Contacts()
-        newcontact.SetFirstName(input((">Enter the first name of the contact: ")))
-        newcontact.SetLastName(input((">Enter the last name of the contact: ")))
-        newcontact.SetDateOfBirth(input((">Enter the date of birth of the contact: ")))
-        newcontact.SetCellPhone(input((">Enter the Cell phone of the contact: ")))
+        newcontact.SetFirstName(
+            input((">Enter the first name of the contact: ")))
+        newcontact.SetLastName(
+            input((">Enter the last name of the contact: ")))
+        newcontact.SetDateOfBirth(
+            input((">Enter the date of birth of the contact: ")))
+        newcontact.SetCellPhone(
+            input((">Enter the Cell phone of the contact: ")))
         newcontact.SetLandline(input((">Enter the landline of the contact: ")))
-        newcontact.SetWorkPhone(input((">Enter the work phone of the contact: ")))
+        newcontact.SetWorkPhone(
+            input((">Enter the work phone of the contact: ")))
         newcontact.SetStreet(input((">Enter the street of the contact: ")))
         newcontact.SetFlat(input((">Enter the flat of the contact: ")))
         newcontact.SetCity(input((">Enter the city of the contact: ")))
-        newcontact.SetPostCode(input((">Enter the post code of the contact: ")))
+        newcontact.SetPostCode(
+            input((">Enter the post code of the contact: ")))
         newcontact.SetEmail(input((">Enter the email of the contact: ")))
         diary.CreateNewContact(newcontact)
+
     def DeleteContact(diary):
         print("""Find contacts to delete
         1) Name
@@ -289,21 +297,33 @@ class Diary:
         while not searchend:
             optsearch = input("Option: ")
             if optsearch == 1:
-                diary.DeleteContactByName(input((">Enter the name to delete: ")))
+                diary.DeleteContactByName(
+                    input((">Enter the name to delete: ")))
                 searchend = True
             elif optsearch == 2:
-                diary.DeleteContactByPhone(input((">Enter the phone to delete: ")))
+                diary.DeleteContactByPhone(
+                    input((">Enter the phone to delete: ")))
                 searchend = True
             elif optsearch == 3:
                 searchend = True
+
     def Main():
         diary = Diary("diary.txt")
         diary.LoadContacts()
         end = False
-        while not(end):
+        while not (end):
             diary.ShowMenu()
             opt = input("Option")
-            if(opt == 1):
+            if (opt == 1):
                 diary.ShowDiary()
-            elif(opt == 2):
-                diary.SearchContacts()
+            elif (opt == 2):
+                diary.SearchContacts(diary)
+            elif (opt == 3):
+                diary.ProcessCreateContact(diary)
+            elif (opt == 4):
+                diary.DeleteContact(diary)
+            elif (opt == 5):
+                diary.SaveContacts()
+            elif (opt == 6):
+                end = True
+    Main()
