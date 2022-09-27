@@ -328,3 +328,6 @@ class Diary:
                 end = True
 
     Main()
+
+    # It does not work, but I'm going to put it in public
+    # It does not work because in the book version Python is 3.7.0 and my version is 3.9.12
