@@ -280,3 +280,30 @@ class Diary:
         newcontact.SetPostCode(input((">Enter the post code of the contact: ")))
         newcontact.SetEmail(input((">Enter the email of the contact: ")))
         diary.CreateNewContact(newcontact)
+    def DeleteContact(diary):
+        print("""Find contacts to delete
+        1) Name
+        2) Phone
+        3) Go back""")
+        searchend = False
+        while not searchend:
+            optsearch = input("Option: ")
+            if optsearch == 1:
+                diary.DeleteContactByName(input((">Enter the name to delete: ")))
+                searchend = True
+            elif optsearch == 2:
+                diary.DeleteContactByPhone(input((">Enter the phone to delete: ")))
+                searchend = True
+            elif optsearch == 3:
+                searchend = True
+    def Main():
+        diary = Diary("diary.txt")
+        diary.LoadContacts()
+        end = False
+        while not(end):
+            diary.ShowMenu()
+            opt = input("Option")
+            if(opt == 1):
+                diary.ShowDiary()
+            elif(opt == 2):
+                diary.SearchContacts()
